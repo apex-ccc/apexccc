@@ -103,8 +103,19 @@ button {
     background: #0a3d62;
     color: white;
     text-align: center;
-    padding: 100px;
-	font-size: 18px;
+    padding: 50px;
+	font-size: 25px;
+}
+.fileUpload {
+	
+    
+	border-style: solid;
+	border-color: gray;
+	border-width: 0.5px;
+	
+	display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
 }
 
 
@@ -260,42 +271,84 @@ margin: 0 10px;
     <div class="section"id="form">
         <h2>📝 Admission Form</h2>
 
-        <form action="https://docs.google.com/forms/d/e/1FAIpQLScw8FkLpC3hfHzNjem7yIccU0ZoKdI45wnV01_8Ujn4_UAj4A/formResponse" method="POST" target="_blank">
-    <input type="text" name="entry.1" placeholder="Student Name" required>
-    <input type="text" name="entry.2" placeholder="Father Name" required>
-    <input type="tel" name="entry.3" placeholder="Mobile Number" required>
-	<textarea name="entry.4" placeholder="Address"></textarea>
-	<input type="text" name="entry.5" placeholder="Father's Occupation" required>
-	
-    <select name="entry.6" id="category" onchange="updateSubcategory()">
+    <form id="myForm">
+	<input type="text" id="stName" placeholder="Student Name" required>
+    <input type="text" id="fName" placeholder="Father Name" required>
+    <input type="tel" id="MobNumber" placeholder="Mobile Number" required>
+	<textarea id="address" placeholder="Address"></textarea>
+	<input type="text" id="Occupation" placeholder="Father's Occupation" required>
+	<div class="fileUpload">
+	<label for="image">Student's Image</label> 
+	<input type="file" id="file" required>
+	</div>
+    <select id="course" onchange="updateSubcategory()">
 		<option value="" disabled selected>Choose a Course:</option>
         <option value="academic">Academic classes</option>
         <option value="tech">Technical courses</option>
 		<option value="exam">Exam Preparation</option>
     </select>
 	
-	<select id="subcategory" name="entry.7" style="display:none;" >
-		<option value=""></option>
-	</select>
-	<div id="subcategory2"style="display:none;">
-	<input  type="text" style="display:block; width:100%;" name="entry.8" placeholder="School Name">
+	<div id="academic"style="display:none;">
 	
-	
-	<select style="display:block; width:100%;" name="entry.9">
+	<select id="std" style="display:block; width:100%;">
+		<option value="" disabled selected>Choose a Class:</option>
+        <option>STD 1</option>
+		<option>STD 2</option>
+		<option>STD 3</option>
+		<option>STD 4</option>
+		<option>STD 5</option>
+		<option>STD 6</option>
+		<option>STD 7</option>
+		<option>STD 8</option>
+		<option>STD 9</option>
+		<option>STD 10</option>
+		<option>STD 11</option>
+		<option>STD 12</option>
+    </select>
+		
+	<input  type="text" style="display:block; width:100%;" id="schName" placeholder="School Name">
+		
+	<select style="display:block; width:100%;" id="bord">
 		<option value="" disabled selected>School board:</option>
         <option>CBSE</option>
         <option>JAC</option>
 		<option>ICSE</option>
     </select>
-	
-	
-	<select style="display:block; width:100%;" name="entry.10">
+		
+	<select style="display:block; width:100%;" id="medium">
 		<option value="" disabled selected>School medium:</option>
         <option>English</option>
         <option>Hindi</option>
     </select>
 	</div>
 	
+	
+	<select id="tech" style="display:none;">
+		<option value="" disabled selected>Choose a course </option>
+		<option>DCA</option>
+		<option>ADCA</option>
+		<option>BCA</option>
+		<option>MCA</option>
+		<option>Full stack web development</option>
+		<option>Programming Language</option>
+		<option>RDBMS</option>
+		<option>Computer Hardware & Networking</option>
+		<option>CCNA</option>
+		<option>Instrumentation</option>;
+ 
+	</select>
+	
+	<select id="exam" style="display:none;">
+		<option value="" disabled selected>Choose an Exam </option>
+		<option>SSC</option>
+		<option>JSSC</option>
+		<option>Railway</option>
+		<option>Banking</option>
+		<option>NEET</option>
+		<option>JEE</option>
+		<option>Polytechnic</option>
+
+	</select>
 
     <button type="submit">Submit</button>
 </form>
@@ -348,37 +401,90 @@ margin: 0 10px;
 	</div>
 </footer>
 
-</body>
-
 <script>
 function updateSubcategory() {
-  let category = document.getElementById("category").value;
-  let sub = document.getElementById("subcategory");
-  let sub2 = document.getElementById("subcategory2");
-  sub.style.display = "block";
-
-  sub.innerHTML = '<option value="" disabled selected>Select Subcategory</option>';
+  let course = document.getElementById("course").value;
+  let academic = document.getElementById("academic");
+  let tech = document.getElementById("tech");
+  let exam = document.getElementById("exam");
   
-  
-
-  if (category === "academic") {
-    sub.innerHTML += '<option>STD 1</option><option>STD 2</option><option>STD 3</option><option>STD 4</option><option>STD 5</option><option>STD 6</option><option>STD 7</option><option>STD 8</option><option>STD 9</option><option>STD 10</option><option>STD 11</option><option>STD 12</option>';
-	sub2.style.display = "block";
-  } else if (category === "tech") {
-	sub2.style.display = "none";
-    sub.innerHTML += '<option>DCA</option><option>ADCA</option><option>BCA</option><option>MCA</option><option>Full stack web development</option><option>Programming Language</option><option>RDBMS</option><option>Computer Hardware & Networking</option><option>CCNA</option><option>Instrumentation</option>';
-  } else if (category === "exam") {
-	sub2.style.display = "none";
-    sub.innerHTML += '<option>SSC</option><option>JSSC</option><option>Railway</option><option>Banking</option><option>NEET</option><option>JEE</option><option>Polytechnic</option>';
+  if (course === "academic") {
+    academic.style.display = "block";
+	exam.style.display = "none";
+	document.getElementById("exam").value="";
+	tech.style.display = "none";
+	document.getElementById("tech").value="";
+  } else if (course === "tech") {
+	academic.style.display = "none";
+	document.getElementById("std").value="";
+	document.getElementById("schName").value="";
+	document.getElementById("bord").value="";
+	document.getElementById("medium").value="";
+	exam.style.display = "none";
+	document.getElementById("exam").value="";
+	tech.style.display = "block";
+    
+	} else if (course === "exam") {
+	exam.style.display = "block";
+	academic.style.display = "none";
+	
+	document.getElementById("std").value="";
+	document.getElementById("schName").value="";
+	document.getElementById("bord").value="";
+	document.getElementById("medium").value="";
+	tech.style.display = "none";
+	document.getElementById("tech").value="";
   }
-  
-  
-  
-  
-  
-  
+ 
 }
 </script>
 
-</html>
 
+<script>
+document.getElementById("myForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const fileInput = document.getElementById("file");
+  const file = fileInput.files[0];
+
+  const reader = new FileReader();
+
+  reader.onload = function() {
+    const base64 = reader.result.split(',')[1];
+	
+	
+
+    fetch("https://script.google.com/macros/s/AKfycby52Dnxm46I0eYcU2rdx7y9mJ4oeNshsZTmU6xhKIPKhSizadlpPca9Pwrdo_pdRPFzsw/exec", {
+      method: "POST",
+      body: new URLSearchParams({
+        stName: document.getElementById("stName").value,
+        fName: document.getElementById("fName").value,
+		MobNumber: document.getElementById("MobNumber").value,
+		address: document.getElementById("address").value,
+		Occupation: document.getElementById("Occupation").value,
+        file: base64,
+        fileName: file.name,
+        mimeType: file.type,
+		course: document.getElementById("course").value,
+		std: document.getElementById("std").value,
+		schName: document.getElementById("schName").value,
+		bord: document.getElementById("bord").value,
+		medium: document.getElementById("medium").value,
+		tech: document.getElementById("tech").value,
+		exam: document.getElementById("exam").value
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      alert("Uploaded successfully!");
+    })
+    .catch(err => console.error(err));
+  };
+
+  reader.readAsDataURL(file);
+});
+</script>
+
+
+</body>
+</html>
