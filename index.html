@@ -89,6 +89,111 @@ position: absolute;
     }
 }
 
+
+/* 3D CONTAINER */
+.science-3d {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    perspective: 800px;
+}
+
+/* COMMON STYLE */
+.science-3d div {
+    position: absolute;
+    opacity: 0.25;
+}
+
+/* ================= ATOM ================= */
+.atom {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #00e0ff;
+    border-radius: 50%;
+    top: 20%;
+    left: 10%;
+    animation: rotateAtom 10s linear infinite;
+    box-shadow: 0 0 15px #00e0ff;
+}
+
+.atom::before,
+.atom::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid #00e0ff;
+    border-radius: 50%;
+}
+
+.atom::before {
+    transform: rotate(60deg);
+}
+
+.atom::after {
+    transform: rotate(120deg);
+}
+
+/* ================= CUBE ================= */
+.cube {
+    width: 30px;
+    height: 30px;
+    top: 60%;
+    left: 80%;
+    transform-style: preserve-3d;
+    animation: rotateCube 12s infinite linear;
+}
+
+.cube::before,
+.cube::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border: 2px solid #ffd700;
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.cube::before {
+    transform: rotateY(90deg);
+}
+
+.cube::after {
+    transform: rotateX(90deg);
+}
+
+/* ================= DNA ================= */
+.dna {
+    width: 6px;
+    height: 60px;
+    top: 40%;
+    left: 50%;
+    background: linear-gradient(#00ff9f, transparent);
+    animation: dnaMove 8s ease-in-out infinite;
+    box-shadow: 0 0 10px #00ff9f;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes rotateAtom {
+    from { transform: rotateY(0deg) rotateX(0deg); }
+    to { transform: rotateY(360deg) rotateX(360deg); }
+}
+
+@keyframes rotateCube {
+    from { transform: rotateX(0deg) rotateY(0deg); }
+    to { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+@keyframes dnaMove {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-40px) rotate(180deg); }
+    100% { transform: translateY(0) rotate(360deg); }
+}
+
+
+
+
 /* HERO IMAGE */
 .hero img {
     width: 100%;
@@ -265,15 +370,46 @@ margin: 0 10px;
         <!-- Math -->
         <div class="icon math">∑</div>
         <div class="icon math">π</div>
-
+		<div class="icon math">💎</div>
+	<!--	<div class="icon math">✨</div>
+		<div class="icon math">🔥</div>
+		<div class="icon math">🚀</div>
+		<div class="icon math">🎯</div>
+		<div class="icon math"></div>
+		-->
         <!-- Chemistry -->
         <div class="icon chem">⚗</div>
         <div class="icon chem">🧪</div>
-
+		<div class="icon chem">🏆</div>
+       <!-- <div class="icon chem">😎</div>
+		<div class="icon chem">💡</div>
+        <div class="icon chem">⚡</div>
+	-->
         <!-- Biology -->
         <div class="icon bio">🧬</div>
         <div class="icon bio">🌿</div>
+		<div class="icon bio">🌌</div>
+      <!--  <div class="icon bio">🔹</div>
+		<div class="icon bio">🧬</div>
+        <div class="icon bio">🎨</div>
+		
+		<div class="icon bio">⚙️</div>
+        <div class="icon bio">🏆</div>
+		<div class="icon bio">📊</div>
+        <div class="icon bio">🎥</div>
+		<div class="icon bio">✨</div>
+		-->
+		
     </div>
+	
+	
+	<div class="science-3d">
+    <div class="atom"></div>
+    <div class="cube"></div>
+    <div class="dna"></div>
+	</div>
+	
+	
 </nav>
 
     
@@ -599,7 +735,18 @@ document.getElementById("myForm").addEventListener("submit", function(e) {
   reader.readAsDataURL(file);
 });
 </script>
+<!-- 3d animation -->
+<script>
+const objects = document.querySelectorAll('.science-3d div');
 
+objects.forEach(obj => {
+    obj.style.left = Math.random() * 90 + "%";
+    obj.style.top = Math.random() * 80 + "%";
+
+    let duration = 8 + Math.random() * 10;
+    obj.style.animationDuration = duration + "s";
+});
+</script>
 
 </body>
 </html>
