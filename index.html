@@ -348,8 +348,10 @@ position: absolute;
     background: #e2ebed;
     padding: 20px;
     border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+   /* box-shadow: 0 5px 15px rgba(0,0,0,0.1); */
+	box-shadow:5px 5px 10px gray;
     transition: 0.3s;
+	
 }
 
 .card:hover {
@@ -360,10 +362,12 @@ position: absolute;
 	
 }
 
+h1 {
+    color: green;
+}
 h2 {
     color: #0a3d62;
 }
-
 ul {
     line-height: 1.8;
 }
@@ -371,6 +375,21 @@ ul {
 	color:red;
 	font-size: 20px;
 }
+
+.instructor{
+	height:120px;
+}
+.instructor img{
+	height:120px;
+	width:120px;
+	margin-left:10px;
+	margin-Right:10px;
+	border:1px solid gray;
+	border-radius:5px;
+}
+
+
+
 
 /* FORM */
 form {
@@ -420,12 +439,21 @@ color: inherit;
     padding: 15px 20px;
 }
 
-h2 a {
+h2 a, h1 a {
    /* text-align: center;
     background: #222;
     color: green;
     padding: 10px;  */
 	color: #0a3d62;
+text-decoration: none;
+margin: 0 10px;
+}
+h1 a {
+   /* text-align: center;
+    background: #222;
+    
+    padding: 10px;  */
+	color: green;
 text-decoration: none;
 margin: 0 10px;
 }
@@ -566,7 +594,7 @@ margin: 0 10px;
 	 <div class="cards">
 	 <div class="card">
     <div class="section">
-        <h2>📘 Academic Classes</h2>
+        <h1>📘 Academic Classes</h1>
 		<img src="academic class.png" />
         <ul>
             <li><b>Nursery to 12th (All Subjects)</b></li>
@@ -584,7 +612,7 @@ margin: 0 10px;
 	<div class="card">
     <!-- TECHNICAL -->
     <div class="section">
-        <h2>💻 Technical Classes</h2>
+        <h1>💻 Technical Classes</h1>
 		<img src="tech.png" />
         <ul>
             <li><b>DCA / ADCA / BCA / MCA</b></li>
@@ -604,15 +632,36 @@ margin: 0 10px;
 	<div class="card">
     <!-- TEACHERS -->
     <div class="section">
-        <h2>👨‍🏫 Experienced Instructors</h2>
-		<img src="exp.png" />
-        <ul>
-            <li><a href="https://mzfr85.github.io/" target="_blank">Md Muzaffar Hussain (B.Tech/ Diploma in CSE)</a></li>
-            <li>Hena Naj (MSc Math, B.Ed, CTET)</li>
-            <li>Zeba Yasmin (BSc Bio, D.El.Ed)</li>
-            <li>Nilufar Parween (BA Urdu)</li>
-            <li>Irshad Ansari (MSc)</li>
-        </ul>
+        <h1>👨‍🏫 Experienced Instructors</h1>
+		
+       
+			
+			<div class="instructor">
+				<a href="https://mzfr85.github.io/" target="_blank"><img src="mzfr.png" align="left"/>
+				<h2> Md Muzaffar Hussain <br>B.Tech./ Diploma in CSE</h2></a>
+			</div>
+			
+			<div class="instructor">
+				<img src="nilu.png" align="right"/>
+				<h2 align="right">Hena Naj </br>(M.Sc. Math, B.Ed, CTET)</h2>
+				
+			</div>
+			<div class="instructor">
+				<img src="nilu.png" align="left"/>
+				<h2>Zeba Yasmin <br>(B.Sc. Bio, D.El.Ed)</h2>
+			</div>
+			<div class="instructor">
+				<img src="nilu.png" align="right"/>
+				<h2 align="right">Nilufar Parween <br>(B.A. Urdu)</h2>
+				
+			</div>
+			<div class="instructor">
+				<img src="irshad.png" align="left"/>
+				<h2>Irshad Ansari (Banti) <br> (M.Sc.)</h2>
+				
+			</div>
+		
+		
     </div>
 	</div>
 	</div> <!-- cards end -->
@@ -620,7 +669,7 @@ margin: 0 10px;
 	
 	<!-- FEATURES -->
 <div class="section">
-    <h2>Why Choose Us?</h2>
+    <h1>Why Choose Us?</h1>
     <div class="cards">
         <div class="card">Learning with Smart Classes and Animation</div>
         <div class="card">Regular Tests</div>
@@ -639,7 +688,7 @@ margin: 0 10px;
 	<div class="cards">
 	 <div class="card">
     <div class="section"id="form">
-        <h2>📝 Admission Form</h2>
+        <h1>📝 Admission Form</h1>
 
 	<img src="adm.png" />
 	
@@ -729,9 +778,8 @@ margin: 0 10px;
 	
 	<!-- payment-button -->
 	<div class="card" id="payment"> 
-	<h2> <a href="https://rzp.io/rzp/apexccc-Donation" target="_blank">💳 Click Here for Donate US </a></h2>
-	 Help Us for build the Future of poor children. Education for All.
-	<br><b>Right to Education (RTE) for Everyone.</b><br>
+	<h1> <a href="https://rzp.io/rzp/apexccc-Donation" target="_blank">💳 Click Here for Donate US </a></h1>
+	 <h2>Help Us for build the Future of poor children. Education for All.<br><b>Right to Education (RTE) for Everyone.</b></h2>
 	
 	<a href="https://rzp.io/rzp/apexccc-Donation" target="_blank"><img src="donate.png" /></a>
 	
@@ -744,7 +792,7 @@ margin: 0 10px;
 
     <!-- CONTACT -->
 <div class="section" id="contact">
-<h2>Contact Us</h2>
+<h1>Contact Us</h1>
 <div class="cards">
 	 <div class="card">
 
